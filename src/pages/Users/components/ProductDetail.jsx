@@ -114,7 +114,8 @@ function ProductDetail() {
                 const response = await productApi.products.getProductsSimilar(product.name, product.productType);
 
                 if (response.success) {
-                    const filtered = response.products.filter((p) => p._id !== product._id).slice(0, 4);
+                    const productsArray = Array.isArray(response?.products) ? response.products : [];
+                    const filtered = productsArray.filter((p) => p && p._id && p._id !== product._id).slice(0, 4);
                     setSimilarProducts(filtered);
                 }
             } catch (error) {
@@ -132,7 +133,9 @@ function ProductDetail() {
             try {
                 const response = await productApi.products.getProductByCategory(product.productType);
                 console.log('a', response);
-                const filtered = response.filter((p) => p._id !== product._id).slice(0, 4);
+                // Ensure response is an array
+                const productsArray = Array.isArray(response) ? response : (Array.isArray(response?.products) ? response.products : []);
+                const filtered = productsArray.filter((p) => p && p._id && p._id !== product._id).slice(0, 4);
                 setSameCategoryProducts(filtered);
             } catch (error) {
                 console.error('Error fetching similar products:', error);

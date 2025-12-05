@@ -156,8 +156,10 @@ function Home() {
                 });
 
                 const response = await productApi.products.getAll(params);
-                setProducts(response.products);
-                setTotalPages(response.totalPages);
+                // Ensure products is always an array
+                const productsArray = Array.isArray(response?.products) ? response.products : [];
+                setProducts(productsArray);
+                setTotalPages(response?.totalPages || 0);
             } catch (err) {
                 setError('Không thể tải sản phẩm. Vui lòng thử lại sau.');
                 console.error('Error fetching products:', err);

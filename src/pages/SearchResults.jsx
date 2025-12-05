@@ -101,9 +101,12 @@ const SearchResults = () => {
                     per_page: 100 // Increase items per page for search
                 });
                 
+                // Ensure products is an array before filtering
+                const productsArray = Array.isArray(response?.products) ? response.products : [];
+                
                 // Filter products by name match
-                const filteredProducts = response.products.filter(product => 
-                    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+                const filteredProducts = productsArray.filter(product => 
+                    product && product.name && product.name.toLowerCase().includes(searchQuery.toLowerCase())
                 );
                 
                 setProducts(filteredProducts);

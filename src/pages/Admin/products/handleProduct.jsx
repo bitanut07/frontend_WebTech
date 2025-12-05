@@ -58,19 +58,20 @@ export const useProducts = () => {
             }
 
             const response = await productApi.products.getAll(params);
-            const productsData = response.products;
+            // Ensure products is always an array
+            const productsData = Array.isArray(response?.products) ? response.products : [];
 
             if (searchQuery) {
                 // Lọc theo tên sản phẩm (phòng trường hợp API không hỗ trợ tìm kiếm)
                 const normalizedSearch = normalizeStr(searchQuery);
                 const filtered = productsData.filter((product) =>
-                    normalizeStr(product.name).includes(normalizedSearch),
+                    product && product.name && normalizeStr(product.name).includes(normalizedSearch),
                 );
                 setProducts(filtered);
                 setTotalPages(1); // Không phân trang khi tìm kiếm
             } else {
                 setProducts(productsData);
-                setTotalPages(response.totalPages);
+                setTotalPages(response?.totalPages || 0);
             }
         } catch (err) {
             setError('Không thể tải sản phẩm. Vui lòng thử lại sau.');
@@ -91,7 +92,12 @@ export const useProducts = () => {
     };
 
     const filteredProducts = useMemo(() => {
+        // Ensure products is an array before filtering
+        if (!Array.isArray(products)) {
+            return [];
+        }
         return products.filter((product) => {
+            if (!product) return false;
             switch (activeTab) {
                 case 'còn hàng':
                     return product.quantity > 0;
