@@ -74,7 +74,7 @@ const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 const axiosInstance = axios.create({
     baseURL: API_URL,
     withCredentials: true,
-    timeout: 600000, // 600 giây timeout mặc định
+    timeout: 30000, // 30 giây timeout mặc định (tối ưu cho production)
     headers: {
         'Content-Type': 'application/json',
     },
@@ -95,16 +95,18 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
     (response) => {
-        console.log('API Response:', {
-            url: response.config.url,
-            status: response.status,
-            data: response.data,
-        });
+        // Chỉ log trong development
+        if (process.env.NODE_ENV === 'development') {
+            console.log('API Response:', {
+                url: response.config.url,
+                status: response.status,
+            });
+        }
         return response;
     },
     async (error) => {
         // Xử lý timeout error
-        if (error.code === 'ECONNABORTED' || error.message === 'Network Error') {
+        if (error.code === 'ECONNABORTED') {
             console.error('Request Timeout:', {
                 url: error.config?.url,
                 timeout: error.config?.timeout,
@@ -113,6 +115,21 @@ axiosInstance.interceptors.response.use(
                 icon: 'error',
                 title: 'Yêu cầu hết thời gian chờ',
                 text: 'Kết nối đến server mất quá nhiều thời gian. Vui lòng kiểm tra kết nối mạng và thử lại.',
+                confirmButtonText: 'Đồng ý',
+            });
+            return Promise.reject(error);
+        }
+
+        // Xử lý network error
+        if (error.message === 'Network Error' || !error.response) {
+            console.error('Network Error:', {
+                url: error.config?.url,
+                message: error.message,
+            });
+            await Swal.fire({
+                icon: 'error',
+                title: 'Không thể kết nối đến server',
+                text: 'Vui lòng kiểm tra kết nối mạng và đảm bảo server đang hoạt động.',
                 confirmButtonText: 'Đồng ý',
             });
             return Promise.reject(error);
@@ -167,17 +184,6 @@ axiosInstance.interceptors.response.use(
                 default:
                     await Swal.fire('Lỗi', 'Đã có lỗi xảy ra', 'error');
             }
-        } else if (error.request) {
-            // Request đã được gửi nhưng không nhận được response
-            console.error('No response received:', {
-                url: error.config?.url,
-            });
-            await Swal.fire({
-                icon: 'error',
-                title: 'Không thể kết nối đến server',
-                text: 'Vui lòng kiểm tra kết nối mạng và thử lại.',
-                confirmButtonText: 'Đồng ý',
-            });
         }
         return Promise.reject(error);
     },

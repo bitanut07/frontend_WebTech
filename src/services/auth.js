@@ -46,7 +46,7 @@ export const verifyOtp = async (body) => {
 };
 export const changePassword = async (password) => {
     try {
-        const response = await axiosInstance.post('auth/verify-change-pass', password, {
+        const response = await axiosInstance.post('/auth/verify-change-pass', password, {
             withCredentials: true,
         });
         return response.data;

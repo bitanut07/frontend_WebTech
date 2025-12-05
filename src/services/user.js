@@ -23,6 +23,7 @@ export const uploadAvatar = async (userData) => {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
+            timeout: 60000, // 60 giây cho upload file
         });
         return response.data;
     } catch (error) {

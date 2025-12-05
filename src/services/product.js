@@ -14,7 +14,7 @@ const productApi = {
     categories: {
         getAll: async () => {
             try {
-                const response = await axiosInstance.get('/categories');
+                const response = await axiosInstance.get('/category');
                 return response.data;
             } catch (error) {
                 handleApiError(error, 'Error fetching categories');
@@ -23,7 +23,7 @@ const productApi = {
 
         create: async (categoryData) => {
             try {
-                const response = await axiosInstance.post('/categories', categoryData);
+                const response = await axiosInstance.post('/category', categoryData);
                 if (response.data.success) {
                     Swal.fire({
                         icon: 'success',
@@ -39,7 +39,7 @@ const productApi = {
 
         update: async (id, categoryData) => {
             try {
-                const response = await axiosInstance.put(`/categories/${id}`, categoryData);
+                const response = await axiosInstance.put(`/category/${id}`, categoryData);
                 if (response.data.success) {
                     Swal.fire({
                         icon: 'success',
@@ -55,7 +55,7 @@ const productApi = {
 
         delete: async (id) => {
             try {
-                const response = await axiosInstance.delete(`/categories/${id}`);
+                const response = await axiosInstance.delete(`/category/${id}`);
                 if (response.data.success) {
                     Swal.fire({
                         icon: 'success',
@@ -112,7 +112,7 @@ const productApi = {
 
         getByCategory: async (category) => {
             try {
-                const response = await axiosInstance.get(`/product/category/${category}`);
+                const response = await axiosInstance.get(`/product/product-category/${category}`);
                 return response.data;
             } catch (error) {
                 handleApiError(error, 'Error fetching products by category');
@@ -175,6 +175,7 @@ const productApi = {
                 console.log(formData);
                 const response = await axiosInstance.put(`/product/${id}`, formData, {
                     headers: { 'Content-Type': 'multipart/form-data' },
+                    timeout: 60000, // 60 giây cho upload file
                 });
 
                 if (response.data.success) {
