@@ -74,7 +74,7 @@ const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 const axiosInstance = axios.create({
     baseURL: API_URL,
     withCredentials: true,
-    timeout: 10000,
+    timeout: 60000, // 60 giây timeout mặc định
     headers: {
         'Content-Type': 'application/json',
     },
@@ -103,6 +103,21 @@ axiosInstance.interceptors.response.use(
         return response;
     },
     async (error) => {
+        // Xử lý timeout error
+        if (error.code === 'ECONNABORTED' || error.message === 'Network Error') {
+            console.error('Request Timeout:', {
+                url: error.config?.url,
+                timeout: error.config?.timeout,
+            });
+            await Swal.fire({
+                icon: 'error',
+                title: 'Yêu cầu hết thời gian chờ',
+                text: 'Kết nối đến server mất quá nhiều thời gian. Vui lòng kiểm tra kết nối mạng và thử lại.',
+                confirmButtonText: 'Đồng ý',
+            });
+            return Promise.reject(error);
+        }
+
         if (error.response) {
             console.error('API Error:', {
                 url: error.config.url,
@@ -152,6 +167,17 @@ axiosInstance.interceptors.response.use(
                 default:
                     await Swal.fire('Lỗi', 'Đã có lỗi xảy ra', 'error');
             }
+        } else if (error.request) {
+            // Request đã được gửi nhưng không nhận được response
+            console.error('No response received:', {
+                url: error.config?.url,
+            });
+            await Swal.fire({
+                icon: 'error',
+                title: 'Không thể kết nối đến server',
+                text: 'Vui lòng kiểm tra kết nối mạng và thử lại.',
+                confirmButtonText: 'Đồng ý',
+            });
         }
         return Promise.reject(error);
     },
