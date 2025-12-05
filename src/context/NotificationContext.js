@@ -35,7 +35,10 @@ export const NotificationProvider = ({ children }) => {
     }, [userId]);
 
     const handleNewNotification = (notification) => {
-        setNotifications((prev) => [notification, ...prev]);
+        setNotifications((prev) => {
+            const prevArray = Array.isArray(prev) ? prev : [];
+            return [notification, ...prevArray];
+        });
         setHasNewNotification(true);
     };
 
@@ -45,11 +48,23 @@ export const NotificationProvider = ({ children }) => {
         try {
             setLoading(true);
             const response = await axios.get(`${API_URL}/notification/${userId}`);
-            setNotifications(response.data);
+            // Ensure notifications is always an array
+            const notificationsData = response.data;
+            if (Array.isArray(notificationsData)) {
+                setNotifications(notificationsData);
+            } else if (notificationsData && Array.isArray(notificationsData.notifications)) {
+                setNotifications(notificationsData.notifications);
+            } else if (notificationsData && Array.isArray(notificationsData.data)) {
+                setNotifications(notificationsData.data);
+            } else {
+                console.warn('Unexpected notifications format:', notificationsData);
+                setNotifications([]);
+            }
             setError(null);
         } catch (error) {
             setError('Không thể tải thông báo');
             console.error('Error fetching notifications:', error);
+            setNotifications([]); // Set empty array on error
         } finally {
             setLoading(false);
         }
@@ -63,11 +78,12 @@ export const NotificationProvider = ({ children }) => {
                 },
             });
 
-            setNotifications((prev) =>
-                prev.map((notification) =>
+            setNotifications((prev) => {
+                if (!Array.isArray(prev)) return [];
+                return prev.map((notification) =>
                     notification._id === notificationId ? { ...notification, isRead: true } : notification,
-                ),
-            );
+                );
+            });
         } catch (error) {
             console.error('Error marking notification as read:', error);
             throw error;
@@ -81,7 +97,10 @@ export const NotificationProvider = ({ children }) => {
                     Authorization: `Bearer ${accessToken}`,
                 },
             });
-            setNotifications((prev) => prev.map((notification) => ({ ...notification, isRead: true })));
+            setNotifications((prev) => {
+                if (!Array.isArray(prev)) return [];
+                return prev.map((notification) => ({ ...notification, isRead: true }));
+            });
         } catch (error) {
             console.error('Error marking all notifications as read:', error);
             throw error;
@@ -96,7 +115,10 @@ export const NotificationProvider = ({ children }) => {
                     Authorization: `Bearer ${accessToken}`,
                 },
             });
-            setNotifications((prev) => prev.filter((notification) => notification._id !== notificationId));
+            setNotifications((prev) => {
+                if (!Array.isArray(prev)) return [];
+                return prev.filter((notification) => notification._id !== notificationId);
+            });
         } catch (error) {
             console.error('Error deleting notification:', error);
             throw error;

@@ -20,8 +20,10 @@ const NotificationDropdown = () => {
     const dropdownRef = useRef(null);
     const { notifications, hasNewNotification, setHasNewNotification, markAsRead, deleteNotification, markAllAsRead } =
         useContext(NotificationContext);
-    const unreadCount = notifications.filter((n) => !n.isRead).length;
-    const visibleNotifications = showAllNotifications ? notifications : notifications.slice(0, 10);
+    // Ensure notifications is always an array
+    const notificationsArray = Array.isArray(notifications) ? notifications : [];
+    const unreadCount = notificationsArray.filter((n) => n && !n.isRead).length;
+    const visibleNotifications = showAllNotifications ? notificationsArray : notificationsArray.slice(0, 10);
     // useEffect(() => {
     //     const handleGlobalClick = (event) => {
     //         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -173,7 +175,7 @@ const NotificationDropdown = () => {
                         </div>
                     ))}
                 </div>
-                {!showAllNotifications && notifications.length > 10 && (
+                {!showAllNotifications && notificationsArray.length > 10 && (
                     <div className="notification-footer">
                         <button className="view-all-button" onClick={() => setShowAllNotifications(true)}>
                             Xem tất cả thông báo
