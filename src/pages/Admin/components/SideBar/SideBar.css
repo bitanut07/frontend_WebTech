@@ -1,0 +1,55 @@
+.sidebar .logo {
+    font-size: var(--font-size-large);
+    color: var(--primary-color);
+    text-align: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex; /* Thêm display flex */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+/* Thêm style cho img trong logo */
+.sidebar .logo img {
+    width: 80px; /* hoặc kích thước phù hợp với design của bạn */
+    height: auto; /* giữ tỷ lệ khung hình */
+    object-fit: contain; /* đảm bảo ảnh không bị méo */
+}
+
+/* Responsive cho logo nếu cần */
+@media (max-width: 768px) {
+    .sidebar .logo img {
+        width: 120px;
+    }
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav ul li {
+    height: 93px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 15px;
+    padding: 0 15px;
+}
+.sidebar nav ul li icon {
+    width: 28px;
+    height: 28px;
+}
+.sidebar ul li span {
+    font-size: 16px;
+}
+
+.sidebar ul li.active {
+    background-color: #4caf50;
+    color: white;
+}
+
+.sidebar ul li:hover {
+    background-color: var(--secondary-color);
+}

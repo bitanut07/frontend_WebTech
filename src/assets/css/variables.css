@@ -1,0 +1,18 @@
+:root {
+    /* Màu sắc chung */
+    --primary-color: #2c593a;
+    --secondary-color: #22832b;
+    --text-color: #333;
+    --text-color-light: #f9f9f9;
+    --header-background-color: #f5f5f5;
+    --sidebar-background-color: #2c593a;
+    --pending-color: #f0ad4e;
+    --completed-color: #247d24;
+
+    /* Font chữ chung */
+    --main-font: 'Roboto', sans-serif;
+    --heading-font: 'Montserrat', sans-serif;
+    --font-size-small: 12px;
+    --font-size-medium: 16px;
+    --font-size-large: 24px;
+}

@@ -1,0 +1,157 @@
+.container-otp {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+}
+
+.otp-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 440px;
+}
+
+.header-otp {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.header-otp h2 {
+    font-size: 1.75rem;
+    color: #2d3748;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.header-otp p {
+    color: #4a5568;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.otp-inputs {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.otp-input {
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    transition: all 0.2s ease;
+    background-color: #f8fafc;
+}
+
+.otp-input:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    background-color: white;
+}
+
+.error-message {
+    background-color: #fee2e2;
+    color: #dc2626;
+    padding: 0.875rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+.timer {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.timer p {
+    color: #4a5568;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.back-button,
+.resend-button {
+    flex: 1;
+    padding: 0.875rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.back-button {
+    background-color: #f8fafc;
+    color: #4a5568;
+    border: 1px solid #e2e8f0;
+}
+
+.back-button:hover {
+    background-color: #f1f5f9;
+}
+
+.resend-button {
+    background-color: #ebf5ff;
+    color: #4a90e2;
+    border: 1px solid #bfdbfe;
+}
+
+.resend-button:hover {
+    background-color: #dbeafe;
+}
+
+.verify-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.verify-button:hover {
+    background-color: #357abd;
+}
+
+@media (max-width: 480px) {
+    .otp-card {
+        padding: 1.5rem;
+    }
+
+    .otp-input {
+        width: 2.75rem;
+        height: 2.75rem;
+        font-size: 1.25rem;
+    }
+
+    .header-otp h2 {
+        font-size: 1.5rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+}

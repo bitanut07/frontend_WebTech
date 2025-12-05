@@ -1,0 +1,129 @@
+/* src/pages/Cart.css */
+.cart-container-c {
+    margin-top: 50px;
+    padding: 20px;
+}
+/*=======================================*/
+.cart-table-c {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+.cart-table-c th, .cart-table-c td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+.cart-table-c th {
+    background-color: #f2f2f2;
+}
+.cart-table-c td {
+    vertical-align: middle; /* Căn giữa nội dung trong ô */
+    text-align: center; /* Căn giữa nội dung trong ô */
+}
+/*=======================================*/
+.cart-image-c {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+/*=======================================*/
+.cart-total-c {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+/*=======================================*/
+.checkout-button-c {
+    padding: 10px 20px;
+    background-color: #1d4d31;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+/*=======================================*/
+.quantity-input-c {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 16px;
+    display: block;
+    margin: 0 auto; /* Căn giữa trường nhập liệu */
+    width: auto; /* Đặt chiều rộng tự động */
+}
+.quantity-input-c:focus {
+    outline: none;
+    border-color: #1d4d31;
+}
+/*=======================================*/
+.select-checkbox-c {
+    outline: none;
+    box-shadow: none;
+    width: 25px; /* Tăng kích thước checkbox */
+    height: 25px; /* Tăng kích thước checkbox */
+    margin: 0 auto; /* Căn giữa checkbox theo chiều ngang */
+    display: block; /* Đảm bảo checkbox là block để căn giữa */
+}
+/*=======================================*/
+.remove-button-c {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+/*=======================================*/
+.cart-actions-c {
+    display: flex;
+    margin-top: 50px;
+    justify-content: flex-start; /* Align buttons to the left */
+    gap: 10px; /* Add space between buttons */
+    margin-bottom: 20px;
+}
+/*=======================================*/
+.select-all-button-c {
+    background-color: #6A994E;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+.select-all-button-c:hover {
+    background-color: #507c3a;
+}
+/*=======================================*/
+.clear-cart-button-c {
+    background-color: #e74c3c; /* Red color for clear button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.clear-cart-button-c:hover {
+    background-color: #c0392b;
+}
+
+.cart-table-c button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}

@@ -1,0 +1,55 @@
+/* Header styles - only for the header component */
+.header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--header-background-color);
+    font-family: var(--main-font);
+    color: var(--text-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h2 {
+    padding-left: 20px;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.header .admin-info {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Adjust spacing between buttons */
+    padding-right: 20px;
+}
+
+/* Header specific button styles */
+.header .admin-avatar,
+.header .notification-btn,
+.header .logout-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 50%; /* Circular buttons */
+}
+
+/* Icon styles */
+.icon-header {
+    font-size: 28px; /* Adjusted size for better balance */
+    color: #2c593a; /* Default icon color */
+}
+.icon-header:hover {
+    color: #247d24;
+}

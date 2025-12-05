@@ -1,0 +1,32 @@
+.order-status-filter-osf {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.order-status-filter-osf button {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 8px 20px; /* Reduced padding */
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 6px; /* Reduced margin */
+    font-size: 14px; /* Reduced font size */
+    min-width: 150px; /* Reduced minimum width */
+    transition: all 0.3s ease;
+}
+
+.order-status-filter-osf button.active {
+    background-color: #c3e6cb;
+    color: #155724;
+    border: 1px solid #155724;
+    transform: scale(1.05);
+}
+
+.order-status-filter-osf button:hover {
+    background-color: #c3e6cb;
+    transform: scale(1.05);
+}

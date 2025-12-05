@@ -1,0 +1,397 @@
+:root {
+    /* Màu sắc chung */
+    --primary-color: #2c593a;
+    --secondary-color: #22832b;
+    --text-color: #333;
+    --text-color-light: #f9f9f9;
+    --header-background-color: #f5f5f5;
+    --sidebar-background-color: #2c593a;
+    --pending-color: #f0ad4e;
+    --completed-color: #247d24;
+
+    /* Font chữ chung */
+    --main-font: 'Roboto', sans-serif;
+    --heading-font: 'Montserrat', sans-serif;
+    --font-size-small: 12px;
+    --font-size-medium: 16px;
+    --font-size-large: 24px;
+}
+
+/* Main Layout */
+.customers-page {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--header-background-color);
+    font-family: var(--main-font);
+    overflow: hidden; /* Prevent page level scrolling */
+}
+
+/* Search Section */
+.customers-search-section {
+    padding: 20px;
+    background-color: var(--header-background-color);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.customers-search-container {
+    display: flex;
+    gap: 10px;
+}
+
+.customers-search-box {
+    flex: 1;
+    padding: 8px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: var(--font-size-medium);
+    color: var(--text-color);
+}
+
+.customers-search-btn {
+    padding: 8px 20px;
+    background: #2c7a7b;
+    color: var(--text-color-light);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: var(--font-size-medium);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+/* Content Section with Tab */
+.customers-content {
+    flex: 1;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* Important for Firefox */
+    height: calc(100vh - 100px); /* Adjust based on search section height */
+}
+.customers-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tab-list {
+    padding: 4px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    gap: 8px;
+    background-color: transparent;
+}
+
+.tab-item {
+    padding: 6px 12px;
+    border: none;
+    background: #f3f4f6;
+    color: #6b7280;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-item.active {
+    background: #e0e7ff;
+    color: #1d4ed8;
+    font-weight: 600;
+}
+
+.view-options {
+    display: flex;
+    gap: 8px;
+}
+.bulk-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: #fee2e2;
+    transition: all 0.2s ease;
+}
+
+.delete-selected-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: transparent;
+    color: #ef4444;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.delete-selected-btn:hover {
+    color: #dc2626;
+}
+
+.delete-selected-btn svg {
+    font-size: 14px;
+}
+
+.customers-card-header {
+    display: flex;
+    padding: 8px;
+}
+
+.customers-card-header input[type='checkbox'] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #d1d5db;
+    transition: all 0.2s ease;
+}
+
+.customers-card-header input[type='checkbox']:checked {
+    background-color: #2c7a7b;
+    border-color: #2c7a7b;
+}
+.customers-avatar {
+    width: 80px;
+    height: 80px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Quan trọng: ngăn ảnh tràn ra ngoài */
+    position: relative; /* Để định vị ảnh bên trong */
+}
+
+.customers-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh lấp đầy container mà không bị méo */
+    position: absolute; /* Giữ ảnh không bị tràn */
+    top: 0;
+    left: 0;
+}
+
+.default-avatar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-large);
+    color: var(--text-color);
+    font-weight: 500;
+    background-color: #f0f0f0;
+    text-transform: uppercase;
+}
+.view-button {
+    padding: 8px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.view-button:hover {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+@media (max-width: 640px) {
+    .customers-tabs {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .tab-list {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .view-options {
+        justify-content: center;
+    }
+}
+.customers-grid-wrapper {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0; /* Important for Firefox */
+}
+
+/* Customer Grid */
+.customers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+}
+
+/* Customer Card */
+.customers-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.customers-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.customers-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.customers-avatar {
+    width: 80px;
+    height: 80px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+}
+
+.customers-list-name {
+    font-family: var(--heading-font);
+    font-size: var(--font-size-medium);
+    font-weight: 500;
+    margin: 0;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.customers-email {
+    font-size: var(--font-size-small);
+    color: #666;
+    margin: 5px 0 15px;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Status Badge */
+.customers-status {
+    text-align: center;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: var(--font-size-small);
+    margin: 0 auto 15px;
+    display: inline-block;
+    width: fit-content;
+}
+
+.customers-status.active {
+    background-color: #e6f4f1;
+    color: var(--completed-color);
+}
+
+.customers-status.blocked {
+    background-color: #fee2e2;
+    color: var(--pending-color);
+}
+
+/* Details */
+.customers-details {
+    border-top: 1px solid #e0e0e0;
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+.customers-details p {
+    color: #666;
+    font-size: var(--font-size-small);
+    margin: 8px 0;
+}
+
+/* Checkbox */
+.customers-card input[type='checkbox'] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin: 0;
+}
+
+/* More Options Button */
+.customers-more-options {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.customers-more-options:hover {
+    background-color: #f5f5f5;
+}
+
+/* Loading and Error States */
+.customers-loading,
+.customers-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: var(--font-size-medium);
+    color: var(--text-color);
+}
+
+.customers-error {
+    color: var(--pending-color);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1400px) {
+    .customers-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .customers-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .customers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .customers-search-container {
+        flex-direction: column;
+    }
+
+    .customers-search-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

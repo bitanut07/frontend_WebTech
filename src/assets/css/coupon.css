@@ -1,0 +1,74 @@
+.coupon-container {
+    margin-top: 100px;
+    padding: 0 0;
+}
+
+.coupon-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.coupon-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.coupon-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgb(236, 229, 244);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.coupon-card:hover {
+    transform: translateY(-5px);
+}
+
+.coupon-discount-t {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.coupon-info {
+    flex: 1;
+}
+
+.coupon-info h2 {
+    color: #333;
+    font-size: 1.25rem;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+}
+
+.expire-date {
+    color: #666;
+    font-size: 0.9rem;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .coupon-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .coupon-container h1 {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,11 @@
+/* src/pages/ProductReview.css */
+.product-review-container-pr {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.success-message-pr {
+    color: green;
+    font-weight: bold;
+    margin-top: 20px;
+}

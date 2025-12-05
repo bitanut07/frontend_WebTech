@@ -1,0 +1,223 @@
+/* src/css/Register.css */
+.register-page-r {
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+.register-page {
+    position: relative;
+}
+.form-row-r {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;  /* Increased gap between columns */
+}
+
+.register-container-r {
+    background: white;
+    border-radius: 15px;
+    padding: 60px;  /* Increased padding */
+    width: 100%;
+    max-width: 1000px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.register-header-r {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.register-header-r h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.register-header-r p {
+    font-size: 18px;
+    color: #666;
+}
+
+.register-form-r {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;  /* Increased gap between form sections */
+}
+
+.form-group-r {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;  /* Space between label and input */
+}
+
+.form-group-r label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group-r input,
+.form-group-r select,
+.form-group-r textarea {
+    padding: 16px;  /* Increased padding */
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;  /* Light background for inputs */
+}
+
+.form-group-r input.error {
+    border-color: #ff4444;
+}
+
+.form-group-r select {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.form-group-r textarea {
+    min-height: 120px;  /* Increased textarea height */
+    margin-top: 5px;
+}
+.form-group-r .password-input input {
+    width: 92%;
+    padding: 16px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+.error-message-r {
+    color: #ff4444;
+    font-size: 14px;
+}
+
+.register-button-r{
+    margin-top: 30px;
+    background: #336633;
+    color: white;
+    padding: 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.register-button-r:hover {
+    background: #2b552b;
+}
+
+.login-link-r {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    font-size: 16px;
+}
+.login-link-r {
+    color: #000000;
+    opacity: 0.8; /* Slightly transparent */
+}
+.login-link-r a {
+    color: #336633;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+    opacity: 1;
+}
+
+.login-link-r a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .register-container-r {
+        padding: 30px;
+    }
+    
+    .form-row-r {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Add to Register.css */
+.password-input-r {
+    position: relative;
+    width: 100%;
+}
+
+.password-input-r input {
+    width: 87%;
+    padding: 16px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+    padding-right: 45px; /* Space for the eye icon */
+}
+.password-input-r input.error {
+    border-color: #ff4444;
+}
+.password-toggle-r {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.password-toggle-r i {
+    font-size: 16px;
+}
+
+
+.password-toggle-r:hover {
+    color: #336633;
+}
+
+.back-home-r {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 12px 20px;
+    background: #336633;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.back-home i {
+    font-size: 16px;
+}
+
+.back-home:hover {
+    background: #2b552b;
+    transform: translateX(-3px);
+}
+

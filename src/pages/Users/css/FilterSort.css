@@ -1,0 +1,287 @@
+/*FilterSort.css */
+/* Filter Brand Section */
+.block-filter-brands .brands__content .list-brand__item {
+    align-items: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    display: flex;
+    height: 34px;
+    justify-content: center;
+    margin: 0 10px 10px 0;
+    padding: 2px 4px;
+}
+
+.block-filter-sort {
+    text-align: left;
+}
+
+.brands-title h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.brands-list {
+    box-sizing: border-box;
+    color: rgb(74, 74, 74);
+    display: flex;
+    flex-wrap: wrap;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    height: 132px;
+    line-height: 24px;
+    text-rendering: optimizelegibility;
+    text-size-adjust: 100%;
+    unicode-bidi: isolate;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+.list-brand__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    transition: box-shadow 0.3s, transform 0.3s;
+    height: 70px;
+    background-color: #fff;
+}
+
+.brands-list a {
+    align-items: center;
+    border-bottom-color: rgb(229, 231, 235);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-style: solid;
+    border-bottom-width: 0.8px;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(229, 231, 235);
+    border-left-style: solid;
+    border-left-width: 0.8px;
+    border-right-color: rgb(229, 231, 235);
+    border-right-style: solid;
+    border-right-width: 0.8px;
+    border-top-color: rgb(229, 231, 235);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-top-style: solid;
+    border-top-width: 0.8px;
+    box-sizing: border-box;
+    color: rgb(72, 95, 199);
+    cursor: pointer;
+    display: flex;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    height: 34px;
+    justify-content: center;
+    line-height: 24px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    margin-right: 10px;
+    margin-top: 0px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    text-decoration-color: rgb(72, 95, 199);
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    text-decoration-thickness: auto;
+    text-rendering: optimizelegibility;
+    text-size-adjust: 100%;
+    width: 107.6px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.list-brand__item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.filter-brand__img {
+    box-sizing: border-box;
+    color: rgb(72, 95, 199);
+    cursor: pointer;
+    display: block;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    height: 20px;
+    line-height: 24px;
+    max-width: none;
+    min-width: 98px;
+    overflow-x: clip;
+    overflow-y: clip;
+    text-rendering: optimizelegibility;
+    text-size-adjust: 100%;
+    width: 98px;
+    -webkit-font-smoothing: antialiased;
+}
+/*Filter Sort Section */
+.block-filter-brand {
+    padding-left: 40px;
+    padding-right: 40px;
+    border-bottom: 1px solid #e5e7eb;
+}
+.block-filter-sort {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.block-filter-sort .filter-sort__title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.block-filter-sort .filter-sort__list-filter .btn-filter {
+    align-items: center;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    color: #444;
+    cursor: pointer;
+    display: flex;
+    font-size: 12px;
+    height: 34px;
+    margin: 0 10px 10px 0;
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+.block-filter-sort .filter-sort__list-filter .btn-filter.active {
+    background: #fef2f2;
+    border: 1px solid #d70018;
+    color: #d70018;
+}
+
+.block-filter-sort .filter-sort__list-filter .filter-wrapper {
+    position: relative;
+}
+
+.filter-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+
+.block-filter-sort .filter-sort__list-filter .filter-wrapper .btn-filter .icon {
+    align-items: center;
+    display: flex;
+    margin-left: 6px;
+    margin-right: 0;
+    width: 15px;
+}
+
+.block-filter-sort .filter-sort__list-filter {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+
+.block-filter-sort .filter-sort__list-filter .filter-wrapper .list-filter-child ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+.block-filter-sort .filter-sort__list-filter .btn-filter-item {
+    position: relative;
+}
+
+.block-filter-sort .filter-sort__list-filter .filter-wrapper .list-filter-child {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    display: none;
+    opacity: 0;
+    padding: 10px;
+    position: absolute;
+    top: calc(100% + 5px); /* Hiển thị ngay dưới nút */
+    left: 0;
+    width: 350px;
+    z-index: 1000; /* Tăng giá trị để hiển thị trên các thành phần khác để không bị che bởi các element khác */
+    transition: opacity 0.3s ease;
+}
+
+.block-filter-sort .filter-sort__list-filter .filter-wrapper .list-filter-child.active {
+    display: block;
+    opacity: 1; /* Làm menu xuất hiện */
+}
+
+.block-filter-sort .filter-sort__list-filter {
+    position: relative; /* Cha cần có position để định vị con */
+}
+
+.sort-wrapper {
+    position: relative; /* Đảm bảo layout chính xác */
+    z-index: 1; /* Thấp hơn menu filter */
+}
+
+.block-filter-sort {
+    position: relative;
+    overflow: visible; /* Đảm bảo không cắt nội dung */
+}
+.block-filter-sort .filter-sort__list-filter .filter-wrapper .list-filter-child.active:after {
+    border-bottom: 10px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    content: '';
+    left: 30px;
+    position: absolute;
+    top: -10px;
+}
+
+/* Thiết kế lại child */
+.block-filter-sort .filter-sort__list-filter .filter-wrapper .list-filter-child .btn-filter-group {
+    display: none;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.block-filter-sort .filter-sort__list-filter .filter-wrapper .list-filter-child .btn-filter-group .button {
+    font-size: 14px;
+    font-weight: 600;
+    width: calc(50% - 5px);
+}
+.block-filter-sort .filter-sort__list-filter .filter-wrapper .list-filter-child .btn-filter-group.show {
+    display: flex;
+}
+.block-filter-sort .filter-sort__list-filter .filter-wrapper .list-filter-child .btn-filter-group .button.submit {
+    background-color: #d70018;
+}
+.block-filter-sort .filter-sort__list-filter .filter-wrapper .list-filter-child .btn-filter-group .button {
+    font-size: 14px;
+    font-weight: 600;
+    width: calc(50% - 5px);
+}
+.block-filter-sort .filter-sort__list-filter .btn-filter-item.active:after {
+    background-color: #d70018;
+    border-radius: 8px 0 10px 0;
+    color: #fff;
+    content: '✓';
+    font-size: 7px;
+    height: 10px;
+    left: 0;
+    padding-bottom: 8px;
+    padding-left: 0;
+    position: absolute;
+    top: 0;
+    width: 15px;
+}

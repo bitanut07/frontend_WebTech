@@ -1,0 +1,131 @@
+/* src/pages/Nav.css */
+.navHomePage-nu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    padding: 15px;
+    background-color: #336633;
+}
+/*=============================*/
+.logo-nu {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none; /* Loại bỏ gạch chân mặc định của thẻ <a> */
+}
+.logo-nu {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.logo-image-nu {
+    width: 50px; /* Adjust this value to make logo smaller */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain;
+}
+/*=============================*/
+.checkingOrder-nu {
+    color: #fff;
+    margin-left: 10px;
+    text-decoration: none; /* Loại bỏ gạch chân mặc định của thẻ <a> */
+}
+/*=============================*/
+.searching-nu {
+    flex: 1;
+    margin: 0 10px;
+    width: 70px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+}
+.searching-nu input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 5px;
+    height: 30px;
+}
+.searching-nu button {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+}
+/*=============================*/
+.clear-search-btn-nu {
+    position: absolute;
+    right: 40px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #999;
+}
+.clear-search-btn-nu:hover {
+    color: #333;
+}
+/*=============================*/
+.icons-nu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.icons-nu i, 
+.icons-nu a {
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+/*=============================*/
+.user-profile-nu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+/*=============================*/
+.profile-link-nu {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #fff; /* Changed to white */
+}
+.profile-link-nu:hover {
+    color: #e0e0e0; /* Lighter shade for hover */
+}
+.profile-link-nu span {
+    font-size: 16px; /* Smaller than icon */
+}
+/*=============================*/
+.logout-btn-nu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff; /* Changed to white */
+    padding: 5px;
+    font-size: 20px; /* Match other icons */
+}
+.logout-btn-nu:hover {
+    color: #e0e0e0; /* Lighter shade for hover */
+}
+/*=============================*/
+.login-link-nu {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #fff; /* Changed to white */
+}
+.login-link-nu:hover {
+    color: #e0e0e0; /* Lighter shade for hover */
+}
+.login-link-nu span {
+    font-size: 16px; /* Smaller than icon */
+}
+/*=============================*/

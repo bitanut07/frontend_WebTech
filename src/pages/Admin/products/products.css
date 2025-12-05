@@ -1,0 +1,93 @@
+/* General Layout */
+.products-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Search and Action Buttons */
+.product-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.product-search input {
+    padding: 10px;
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-product-btn,
+.filter-btn,
+.select-date-btn {
+    padding: 10px 15px;
+    background-color: #2d7666; /* Màu xanh đậm cho nút */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-buttons button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.filter-buttons button.active {
+    background-color: #2d7666;
+    color: white;
+}
+
+/* Status Styling */
+.status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.status.low-stock {
+    background-color: #ff9800; /* Màu cam cho Low Stock */
+}
+
+.status.published {
+    background-color: #4caf50; /* Màu xanh cho Published */
+}
+
+.status.draft {
+    background-color: #9e9e9e; /* Màu xám cho Draft */
+}
+
+/* Action Buttons */
+.product-table td button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 5px;
+    color: #555;
+}
+
+.product-table td button:hover {
+    color: #000; /* Màu đen khi hover */
+}

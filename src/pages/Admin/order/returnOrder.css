@@ -1,0 +1,236 @@
+.return-container {
+    padding: 20px;
+    background: #fff;
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+}
+
+.return-header {
+    margin-bottom: 24px;
+    background: #fff;
+}
+
+/* Filter Tabs và Status Tabs */
+.filter-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+}
+
+.status-tabs {
+    padding: 4px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 6px;
+    display: flex;
+    gap: 8px;
+}
+
+.tab {
+    padding: 6px 12px;
+    border: none;
+    background: #f3f4f6;
+    color: #6b7280;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.tab.active {
+    background: #e0e7ff;
+    color: #1d4ed8;
+    font-weight: 600;
+}
+
+/* Filter Button và Popup */
+.filter-button {
+    padding: 8px 16px;
+    border: 1px solid #e0e0e0;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-popup {
+    position: absolute;
+    right: 20px;
+    top: 100px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 16px;
+    width: 280px;
+    z-index: 1000;
+    border: 1px solid #e5e7eb;
+}
+
+.close-filter-button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-filter-button:hover {
+    color: #374151;
+}
+
+.filter-section {
+    margin-bottom: 16px;
+}
+
+.filter-section h3 {
+    font-size: 14px;
+    color: #374151;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.date-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.date-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.date-input-group label {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.date-input-group input {
+    padding: 6px 8px;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.filter-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.filter-actions button {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.reset-button {
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    color: #374151;
+}
+
+.apply-button {
+    background: #2563eb;
+    border: none;
+    color: white;
+}
+
+.return-table {
+    flex: 1;
+    overflow: auto;
+    border-radius: 4px;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th {
+    background: #f9fafb;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 500;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #4b5563;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+button {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #f3f4f6 !important;
+    color: #9ca3af !important;
+}
+
+/* Table action buttons */
+td button {
+    padding: 4px 12px;
+    font-size: 13px;
+    border: 1px solid #e5e7eb;
+}
+
+ td button:first-child {
+    /* View button */
+    background: #dfdfe0;
+    color: #374151;
+}
+
+td button:nth-child(2) {
+    /* Accept button */
+    background: #059669;
+    color: white;
+    border: none;
+}
+
+td button:nth-child(3) {
+    /* Reject button */
+    background: #dc2626;
+    color: white;
+    border: none;
+}
+
+td button:hover:not(:disabled) {
+    opacity: 0.9;
+}
+
+/* Filter and action buttons hover effects */
+.filter-button:hover,
+td button:first-child:hover {
+    background: #f3f4f6;
+}

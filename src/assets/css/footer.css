@@ -1,0 +1,36 @@
+/* For footer */
+.footer-f {
+    background-color: #336633;
+    color: #f4f4f4;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content-f h3 {
+    margin: 10px 0;
+}
+
+.footer-content-f p {
+    font-size: 14px;
+    margin: 0 0 10px;
+}
+
+.social-icons-f a {
+    color: #f4f4f4;
+    font-size: 20px;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.social-icons-f a:hover {
+    color: #ddd;
+}
+
+.footer-end-f {
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+  

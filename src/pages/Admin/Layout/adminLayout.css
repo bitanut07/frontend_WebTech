@@ -1,0 +1,43 @@
+.admin-layout {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 15vw;
+    max-width: 260px;
+    min-width: 200px;
+    background-color: var(--sidebar-background-color);
+    color: var(--text-color-light);
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    font-family: var(--main-font);
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--header-background-color);
+    overflow: hidden;
+}
+
+/* Header area */
+.header {
+    flex-shrink: 0; /* Prevent header from shrinking */
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+/* Content area - where Outlet renders */
+.content-area {
+    flex: 1;
+    overflow: auto;
+    background-color: var(--background-color);
+    position: relative;
+}

@@ -1,0 +1,28 @@
+/* src/pages/Users/components/MessengerIcon.css */
+.fb-messenger-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0A7CFF;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 9999;
+    text-decoration: none;
+}
+
+.fb-messenger-icon i {
+    color: #fff;
+    font-size: 30px;
+}
+
+.fb-messenger-icon:hover {
+    transform: scale(1.1);
+    background: #0063D1;
+}

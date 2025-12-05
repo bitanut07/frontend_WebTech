@@ -1,0 +1,191 @@
+/* OrderCheck.css */
+
+.order-check-container-oc {
+    margin-top: 60px;
+    padding: 20px;
+}
+/*=============================*/
+.order-oc {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    position: relative;
+}
+.order-oc h2 {
+    margin-bottom: 10px;
+}
+/*=============================*/
+.order-header-oc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/*=============================*/
+.order-status-oc {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #3498db;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+/*=============================*/
+.order-table-oc {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+.order-table-oc th, .order-table-oc td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+.order-table-oc th {
+    background-color: #f2f2f2;
+}
+/*=============================*/
+.order-image-oc {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+/*=============================*/
+.order-actions-oc {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+}
+.order-actions-oc span {
+    font-size: 16px;
+    color: #2ecc71;
+    margin-bottom: 10px;
+}
+
+.order-actions-top-oc {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.order-actions-bottom-oc {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+/*=============================*/
+.return-button-oc, .review-button-oc, .cancel-button-oc {
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.return-button.return-requested-oc {
+    background-color: #e74c3c;
+    cursor: not-allowed;
+}
+
+.return-button-oc:hover, .review-button-oc:hover, .cancel-button-oc:hover {
+    background-color: #2980b9;
+}
+
+.return-button-oc:disabled, .cancel-button-oc:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.return-button-oc,
+.cancel-button-oc {
+    padding: 8px 16px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.return-button-oc {
+    background-color: #f39c12;
+}
+
+.cancel-button-oc {
+    background-color: #e74c3c;
+}
+
+.return-button-oc.active,
+.cancel-button-oc.active {
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.return-button-oc:disabled,
+.cancel-button-oc:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.cancel-button-oc {
+    padding: 8px 16px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+/*=============================*/
+.order-total-oc {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2ecc71;
+}
+/*=============================*/
+.details-button-oc {
+    padding: 8px 16px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+.details-button-oc:hover {
+    background-color: #2b552b;
+}
+/*=============================*/
+.payment-method-oc {
+    margin-left: auto;
+    color: #666;
+    font-size: 14px;
+}
+/*=============================*/
+.discount-row-oc {
+    background-color: #fff5f5;
+}
+.discount-row-oc td {
+    padding: 12px 8px;
+    color: #e74c3c;
+}
+/*=============================*/
+.final-total-row-oc {
+    background-color: #f8f9fa;
+    border-top: 2px solid #dee2e6;
+}
+.final-total-row-oc td {
+    padding: 12px 8px;
+    font-size: 1.1em;
+}
+/*=============================*/
+

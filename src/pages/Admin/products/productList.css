@@ -1,0 +1,263 @@
+.product-container {
+    padding: 20px;
+    background: #fff;
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+}
+
+.product-header {
+    margin-bottom: 24px;
+    background: #fff;
+}
+
+.search-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 42px;
+}
+
+.highlight {
+    background-color: #fff3cd;
+    padding: 0 2px;
+    border-radius: 2px;
+    font-weight: 500;
+    color: #856404;
+}
+.search-input {
+    width: 100%;
+    padding: 10px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #374151;
+}
+
+.add-button {
+    white-space: nowrap;
+    padding: 10px 16px;
+    background: #2c7a7b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+/* Filter Tabs - Fixed */
+.filter-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #ffffff;
+}
+
+.status-tabs {
+    padding: 4px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 6px;
+    justify-content: space-between;
+    display: flex;
+    gap: 8px;
+}
+
+.tab {
+    padding: 6px 12px;
+    border: none;
+    background: #f3f4f6;
+    color: #6b7280;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.tab.active {
+    background: #e0e7ff;
+    color: #1d4ed8;
+    font-weight: 600;
+}
+
+.view-options {
+    display: flex;
+    gap: 8px;
+}
+
+.view-button {
+    padding: 8px 16px;
+    border: 1px solid #e0e0e0;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.product-table {
+    flex: 1;
+    overflow: auto;
+    border-radius: 4px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #fff;
+}
+
+th {
+    text-align: left;
+    padding: 12px;
+    color: #666;
+    font-weight: 500;
+    border-bottom: 1px solid #e0e0e0;
+    background: #fff;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    background: #fff;
+}
+tbody tr {
+    height: 80px;
+}
+
+.product-info-table {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.product-thumbnail {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.product-name-list {
+    text-decoration: none;
+    display: block;
+    max-width: 200px;
+}
+
+.product-name-list {
+    font-size: 14px;
+    color: #333;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.status.in-stock {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status.out-of-stock {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.edit-button-table,
+.delete-button-table {
+    padding: 6px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #666;
+}
+
+.edit-button-table:hover,
+.delete-button-table:hover {
+    color: #2196f3;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+tr:last-child-pl td {
+    border-bottom: none;
+}
+
+thead:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 4px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0) 100%);
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 20px 0;
+}
+
+.page-button {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    min-width: 40px;
+    transition: all 0.2s;
+}
+
+.page-button:hover {
+    background-color: #f0f0f0;
+}
+
+.page-button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.page-button:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+/* Update existing filter styles */
+.type-filter {
+    min-width: 200px;
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    padding-right: 32px;
+}
