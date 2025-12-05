@@ -82,15 +82,6 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
     (config) => {
-        // Log API URL để debug (chỉ trong development)
-        if (process.env.NODE_ENV === 'development') {
-            console.log('API Request:', {
-                baseURL: config.baseURL,
-                url: config.url,
-                fullURL: `${config.baseURL}${config.url}`,
-            });
-        }
-        
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
         if (currentUser?.accessToken) {
