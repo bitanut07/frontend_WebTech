@@ -124,11 +124,18 @@ function Home() {
         const fetchFeaturedProducts = async () => {
             try {
                 const response = await productApi.products.getFeatured(5);
-                if (response.success) {
+                if (response && response.success && response.featuredProducts) {
                     setFeaturedProducts(response.featuredProducts);
+                } else if (response && response.featuredProducts) {
+                    // Fallback: nếu có data nhưng không có success flag
+                    setFeaturedProducts(response.featuredProducts);
+                } else {
+                    console.warn('No featured products received:', response);
+                    setFeaturedProducts([]);
                 }
             } catch (error) {
                 console.error('Error fetching featured products:', error);
+                setFeaturedProducts([]); // Set empty array để không crash UI
             }
         };
 

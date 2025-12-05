@@ -14,45 +14,53 @@ const orderApi = {
     getAllOrders: async () => {
         try {
             const response = await axiosInstance.get('/order/allOrders');
-            return response.data;
+            if (response.data && response.data.success) {
+                return response.data.orders || [];
+            }
+            return [];
         } catch (error) {
+            console.error('Error in getAllOrders:', error);
             handleApiError(error, 'Không thể tải danh sách đơn hàng');
+            return [];
         }
     },
 
     getOrderById: async (orderId) => {
         try {
+            if (!orderId) {
+                throw new Error('Order ID is required');
+            }
+            
             const response = await axiosInstance.get(`/order/${orderId}`);
-            console.log('API Response:', response); // Debug log
 
             if (!response.data) {
                 throw new Error('No data received from server');
             }
 
-            // Return order data directly since backend sends {order: {...}}
-            const orderData = response.data.order;
+            // Handle both response formats
+            const orderData = response.data.order || response.data;
 
             if (!orderData) {
                 throw new Error('Order not found');
             }
 
-            console.log('Processed order data:', orderData); // Debug log
             return orderData;
         } catch (error) {
             console.error('Error in getOrderById:', error);
             handleApiError(error, 'Không thể tải thông tin đơn hàng');
-            throw error; // Re-throw to handle in component
+            throw error;
         }
     },
 
     getUserOrders: async () => {
         try {
             const response = await axiosInstance.get('/order');
-            if (response.data.success) {
-                return response.data.orders;
+            if (response.data && response.data.success) {
+                return response.data.orders || [];
             }
             return [];
         } catch (error) {
+            console.error('Error in getUserOrders:', error);
             handleApiError(error, 'Không thể tải đơn hàng của người dùng');
             return [];
         }
@@ -60,7 +68,11 @@ const orderApi = {
 
     createOrder: async (orderData) => {
         try {
-            console.log('orderData: ', orderData);
+            // Validation
+            if (!orderData || !orderData.items || orderData.items.length === 0) {
+                throw new Error('Order data is invalid');
+            }
+
             const payload = {
                 infoReceive: {
                     name: orderData.name,
@@ -87,18 +99,20 @@ const orderApi = {
 
             const response = await axiosInstance.post('/order', payload);
 
-            if (response.data.success) {
+            if (response.data && response.data.success) {
                 return {
                     success: true,
                     order: response.data.newOrder,
                 };
             }
-            throw new Error(response.data.newOrder || 'Create order failed');
+            
+            throw new Error(response.data?.message || 'Create order failed');
         } catch (error) {
+            console.error('Error in createOrder:', error);
             handleApiError(error, 'Không thể tạo đơn hàng');
             return {
                 success: false,
-                error: error.message,
+                error: error.response?.data?.message || error.message || 'Không thể tạo đơn hàng',
             };
         }
     },
@@ -138,33 +152,53 @@ const orderApi = {
     },
     updateOrderStatus: async (orderId, status) => {
         try {
+            if (!orderId || !status) {
+                throw new Error('Order ID and status are required');
+            }
+            
             const response = await axiosInstance.put(`/order/${orderId}`, { status });
-            if (response.data.success) {
+            if (response.data && response.data.success) {
                 Swal.fire({
                     icon: 'success',
                     title: 'Thành công',
                     text: 'Cập nhật trạng thái đơn hàng thành công',
                 });
+                return response.data;
             }
-            return response.data;
+            throw new Error(response.data?.message || 'Update failed');
         } catch (error) {
+            console.error('Error in updateOrderStatus:', error);
             handleApiError(error, 'Không thể cập nhật trạng thái đơn hàng');
+            return {
+                success: false,
+                error: error.response?.data?.message || error.message
+            };
         }
     },
 
     updateOrder: async (orderId, orderData) => {
         try {
+            if (!orderId || !orderData) {
+                throw new Error('Order ID and data are required');
+            }
+            
             const response = await axiosInstance.put(`/order/${orderId}`, orderData);
-            if (response.data.success) {
+            if (response.data && response.data.success) {
                 Swal.fire({
                     icon: 'success',
                     title: 'Thành công',
                     text: 'Cập nhật đơn hàng thành công',
                 });
+                return response.data;
             }
-            return response.data;
+            throw new Error(response.data?.message || 'Update failed');
         } catch (error) {
+            console.error('Error in updateOrder:', error);
             handleApiError(error, 'Không thể cập nhật đơn hàng');
+            return {
+                success: false,
+                error: error.response?.data?.message || error.message
+            };
         }
     },
 

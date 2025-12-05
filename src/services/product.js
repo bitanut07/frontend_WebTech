@@ -95,36 +95,104 @@ const productApi = {
                 }).toString();
 
                 const response = await axiosInstance.get(`/product?${queryParams}`);
-                return response.data;
+                
+                // Handle response format
+                if (response.data && response.data.success !== undefined) {
+                    return response.data;
+                }
+                
+                // Fallback for old format
+                return {
+                    success: true,
+                    products: response.data?.products || [],
+                    page: response.data?.page || page,
+                    per_page: response.data?.per_page || per_page,
+                    totalProducts: response.data?.totalProducts || 0,
+                    totalPages: response.data?.totalPages || 0,
+                };
             } catch (error) {
-                handleApiError(error, 'Error fetching products');
+                console.error('Error in getAll products:', error);
+                return {
+                    success: false,
+                    products: [],
+                    page: 1,
+                    per_page: 10,
+                    totalProducts: 0,
+                    totalPages: 0,
+                };
             }
         },
 
         getById: async (id) => {
             try {
+                if (!id) {
+                    throw new Error('Product ID is required');
+                }
+                
                 const response = await axiosInstance.get(`/product/${id}`);
+                
+                // Handle both response formats
+                if (response.data && response.data.success !== undefined) {
+                    return response.data.product || response.data;
+                }
+                
                 return response.data;
             } catch (error) {
-                handleApiError(error, 'Error fetching product details');
+                console.error('Error in getById:', error);
+                return {
+                    success: false,
+                    product: null,
+                    message: error.response?.data?.message || 'Product not found'
+                };
             }
         },
 
         getByCategory: async (category) => {
             try {
+                if (!category) {
+                    throw new Error('Category is required');
+                }
+                
                 const response = await axiosInstance.get(`/product/product-category/${category}`);
-                return response.data;
+                
+                // Handle response format
+                if (response.data && response.data.success !== undefined) {
+                    return response.data.products || [];
+                }
+                
+                // Fallback for array response
+                return Array.isArray(response.data) ? response.data : [];
             } catch (error) {
-                handleApiError(error, 'Error fetching products by category');
+                console.error('Error in getByCategory:', error);
+                return [];
             }
         },
 
         getFeatured: async (limit = 5) => {
             try {
-                const response = await axiosInstance.get(`/product/feature-product`);
-                return response.data;
+                const response = await axiosInstance.get(`/product/feature-product`, {
+                    params: { limit }
+                });
+                
+                // Đảm bảo response có đúng format
+                if (response.data && response.data.success) {
+                    return response.data;
+                }
+                
+                // Fallback nếu response không đúng format
+                return {
+                    success: true,
+                    featuredProducts: response.data?.featuredProducts || response.data || []
+                };
             } catch (error) {
-                handleApiError(error, 'Error fetching featured products');
+                console.error('Error fetching featured products:', error);
+                
+                // Trả về empty array thay vì throw error để không crash app
+                return {
+                    success: false,
+                    featuredProducts: [],
+                    message: error.response?.data?.message || 'Không thể tải sản phẩm nổi bật'
+                };
             }
         },
         create: async (formData) => {
@@ -314,11 +382,23 @@ const productApi = {
         },
         getProductByCategory: async (category) => {
             try {
+                if (!category) {
+                    throw new Error('Category is required');
+                }
+                
                 console.log(category);
                 const response = await axiosInstance.get(`/product/product-category/${category}`);
-                return response.data;
+                
+                // Handle response format
+                if (response.data && response.data.success !== undefined) {
+                    return response.data.products || [];
+                }
+                
+                // Fallback for array response
+                return Array.isArray(response.data) ? response.data : [];
             } catch (error) {
-                handleApiError(error, 'Error fetching products by category');
+                console.error('Error in getProductByCategory:', error);
+                return [];
             }
         },
     },
